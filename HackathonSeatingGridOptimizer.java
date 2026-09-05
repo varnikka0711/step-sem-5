@@ -36,26 +36,24 @@ class HackathonSeatingGridOptimizer {
 
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
-
-        int rows = sc.nextInt();
-
-        int[][] seatingScores = new int[rows][];
-
-        for (int i = 0; i < rows; i++) {
-            int columns = sc.nextInt();
-
-            seatingScores[i] = new int[columns];
-
-            for (int j = 0; j < columns; j++) {
-                seatingScores[i][j] = sc.nextInt();
+        try (Scanner sc = new Scanner(System.in)) {
+            int rows = sc.nextInt();
+            
+            int[][] seatingScores = new int[rows][];
+            
+            for (int i = 0; i < rows; i++) {
+                int columns = sc.nextInt();
+                
+                seatingScores[i] = new int[columns];
+                
+                for (int j = 0; j < columns; j++) {
+                    seatingScores[i][j] = sc.nextInt();
+                }
             }
+            
+            int threshold = sc.nextInt();
+            
+            System.out.println(classifyRows(seatingScores, threshold));
         }
-
-        int threshold = sc.nextInt();
-
-        System.out.println(classifyRows(seatingScores, threshold));
-
-        sc.close();
     }
 }

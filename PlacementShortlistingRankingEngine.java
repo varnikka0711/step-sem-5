@@ -2,9 +2,9 @@ import java.util.*;
 
 class PlacementShortlistingRankingEngine {
 
-    private String name;
-    private double cgpa;
-    private int codingScore;
+    private final String name;
+    private final double cgpa;
+    private final int codingScore;
 
     public PlacementShortlistingRankingEngine(String name, double cgpa, int codingScore) {
         this.name = name;
@@ -18,6 +18,12 @@ class PlacementShortlistingRankingEngine {
 
     static boolean isEligible(double cgpa, int codingScore) {
         return cgpa >= 6.5 && codingScore >= 60;
+    }
+
+    public PlacementShortlistingRankingEngine(double cgpa, int codingScore, String name) {
+        this.cgpa = cgpa;
+        this.codingScore = codingScore;
+        this.name = name;
     }
 
     private double getCompositeScore() {
@@ -74,29 +80,27 @@ class PlacementShortlistingRankingEngine {
 
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
-
-        int n = sc.nextInt();
-        sc.nextLine();
-
-        PlacementShortlistingRankingEngine[] candidates =
-            new PlacementShortlistingRankingEngine[n];
-
-        for (int i = 0; i < n; i++) {
-
-            String name = sc.nextLine();
-            double cgpa = sc.nextDouble();
-            int codingScore = sc.nextInt();
+        try (Scanner sc = new Scanner(System.in)) {
+            int n = sc.nextInt();
             sc.nextLine();
-
-            candidates[i] =
-                new PlacementShortlistingRankingEngine(
-                    name, cgpa, codingScore
-                );
+            
+            PlacementShortlistingRankingEngine[] candidates =
+                    new PlacementShortlistingRankingEngine[n];
+            
+            for (int i = 0; i < n; i++) {
+                
+                String name = sc.nextLine();
+                double cgpa = sc.nextDouble();
+                int codingScore = sc.nextInt();
+                sc.nextLine();
+                
+                candidates[i] =
+                        new PlacementShortlistingRankingEngine(
+                                name, cgpa, codingScore
+                        );
+            }
+            
+            System.out.println(shortlistAndRank(candidates));
         }
-
-        System.out.println(shortlistAndRank(candidates));
-
-        sc.close();
     }
 }

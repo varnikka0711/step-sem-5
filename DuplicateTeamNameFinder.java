@@ -19,19 +19,17 @@ class DuplicateTeamNameFinder {
 
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
-
-        int n = sc.nextInt();
-        sc.nextLine();
-
-        String[] teamNames = new String[n];
-
-        for (int i = 0; i < n; i++) {
-            teamNames[i] = sc.nextLine();
+        try (Scanner sc = new Scanner(System.in)) {
+            int n = sc.nextInt();
+            sc.nextLine();
+            
+            String[] teamNames = new String[n];
+            
+            for (int i = 0; i < n; i++) {
+                teamNames[i] = sc.nextLine();
+            }
+            
+            System.out.println(findDuplicateTeam(teamNames));
         }
-
-        System.out.println(findDuplicateTeam(teamNames));
-
-        sc.close();
     }
 }

@@ -9,21 +9,19 @@ class HackathonScoreCurveBooster {
     }
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-        int n = sc.nextInt();
-        int[] scores = new int[n];
-
-        for (int i = 0; i < n; i++) {
-            scores[i] = sc.nextInt();
+        try (Scanner sc = new Scanner(System.in)) {
+            int n = sc.nextInt();
+            int[] scores = new int[n];
+            
+            for (int i = 0; i < n; i++) {
+                scores[i] = sc.nextInt();
+            }
+            
+            int bonus = sc.nextInt();
+            
+            curveScores(scores, bonus);
+            
+            System.out.println(Arrays.toString(scores));
         }
-
-        int bonus = sc.nextInt();
-
-        curveScores(scores, bonus);
-
-        System.out.println(Arrays.toString(scores));
-
-        sc.close();
     }
 }

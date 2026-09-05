@@ -29,17 +29,15 @@ class Top3PodiumFinder {
 
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
-
-        int n = sc.nextInt();
-        int[] scores = new int[n];
-
-        for (int i = 0; i < n; i++) {
-            scores[i] = sc.nextInt();
+        try (Scanner sc = new Scanner(System.in)) {
+            int n = sc.nextInt();
+            int[] scores = new int[n];
+            
+            for (int i = 0; i < n; i++) {
+                scores[i] = sc.nextInt();
+            }
+            
+            System.out.println(Arrays.toString(findTopThreeScores(scores)));
         }
-
-        System.out.println(Arrays.toString(findTopThreeScores(scores)));
-
-        sc.close();
     }
 }
