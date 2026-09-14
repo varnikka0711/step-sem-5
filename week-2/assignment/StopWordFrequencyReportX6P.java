@@ -17,8 +17,8 @@ public class StopWordFrequencyReportX6P {
             for (String stopWord : stopWords) {
                 if (word.equals(stopWord)) {
                     isStopWord = true;
-                    break;
-                }
+                    break;}
+                
             }
 
             if (!isStopWord) {
